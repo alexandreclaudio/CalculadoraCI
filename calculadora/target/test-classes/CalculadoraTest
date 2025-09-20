@@ -1,0 +1,37 @@
+package br.com.example;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+/**
+ * Classe de testes para a classe Calculadora.
+ * Garante que todas as operações funcionem como esperado.
+ */
+class CalculadoraTest {
+
+    private Calculadora calculadora;
+
+    @BeforeEach
+    void setUp() {
+        // Roda antes de cada teste, garantindo uma nova instância da calculadora.
+        calculadora = new Calculadora();
+    }
+
+    @Test
+    @DisplayName("Deve somar dois números corretamente")
+    void deveSomarCorretamente() {
+        assertEquals(5.0, calculadora.somar(2.0, 3.0), "A soma de 2 e 3 deve ser 5");
+        assertEquals(-1.0, calculadora.somar(-2.0, 1.0), "A soma de -2 e 1 deve ser -1");
+        assertEquals(0.0, calculadora.somar(0.0, 0.0), "A soma de 0 e 0 deve ser 0");
+    }
+
+    @Test
+    @DisplayName("Deve subtrair dois números corretamente")
+    void deveSubtrairCorretamente() {
+        assertEquals(2.0, calculadora.subtrair(5.0, 3.0), "A subtração de 5 por 3 deve ser 2");
+        assertEquals(-5.0, calculadora.subtrair(-2.0, 3.0), "A subtração de -2 por 3 deve ser -5");
+    }
+}
