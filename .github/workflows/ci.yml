@@ -79,4 +79,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: calculadora-jar # Nome do artefato no GitHub
-          path: target/calculadora-simples-1.0-SNAPSHOT.jar # Caminho para o arquivo a ser enviado
+          path: target/calculadoraci-1.0-SNAPSHOT.jar # Caminho para o arquivo a ser enviado
