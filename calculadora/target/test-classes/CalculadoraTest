@@ -34,4 +34,30 @@ class CalculadoraTest {
         assertEquals(2.0, calculadora.subtrair(5.0, 3.0), "A subtração de 5 por 3 deve ser 2");
         assertEquals(-5.0, calculadora.subtrair(-2.0, 3.0), "A subtração de -2 por 3 deve ser -5");
     }
+
+    @Test
+    @DisplayName("Deve multiplicar dois números corretamente")
+    void deveMultiplicarCorretamente() {
+        assertEquals(15.0, calculadora.multiplicar(5.0, 3.0), "A multiplicação de 5 por 3 deve ser 15");
+        assertEquals(0.0, calculadora.multiplicar(10.0, 0.0), "Qualquer número multiplicado por 0 deve ser 0");
+    }
+
+    @Test
+    @DisplayName("Deve dividir dois números corretamente")
+    void deveDividirCorretamente() {
+        assertEquals(2.0, calculadora.dividir(10.0, 5.0), "A divisão de 10 por 5 deve ser 2");
+        assertEquals(2.5, calculadora.dividir(5.0, 2.0), "A divisão de 5 por 2 deve ser 2.5");
+    }
+
+    @Test
+    @DisplayName("Deve lançar uma exceção ao tentar dividir por zero")
+    void deveLancarExcecaoAoDividirPorZero() {
+        // Verifica se a exceção IllegalArgumentException é lançada
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            calculadora.dividir(10.0, 0.0);
+        });
+
+        // Verifica se a mensagem da exceção está correta
+        assertEquals("Não é possível dividir por zero.", exception.getMessage());
+    }
 }
